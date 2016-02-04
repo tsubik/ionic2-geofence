@@ -1,5 +1,5 @@
 import { App, Platform } from "ionic/ionic";
-import { MainPage } from "./pages/main/main";
+import { GeofenceListPage } from "./pages/geofence-list/geofence-list";
 
 @App({
   template: "<ion-nav [root]='rootPage'></ion-nav>",
@@ -7,7 +7,7 @@ import { MainPage } from "./pages/main/main";
 })
 export class MyApp {
   constructor(platform: Platform) {
-    this.rootPage = MainPage;
+    this.rootPage = GeofenceListPage;
 
     platform.ready().then(() => {
       // The platform is now ready. Note: if this callback fails to fire, follow

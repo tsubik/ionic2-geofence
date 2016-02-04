@@ -1,0 +1,11 @@
+<ion-navbar *navbar>
+  <ion-title>Ionic 2 Geofence Example</ion-title>
+</ion-navbar>
+
+<ion-content padding class="geofence-list-page">
+  <ion-list>
+    <ion-item *ngFor="#geofence of geofences" (click)="itemTapped($event, geofence)">
+      <p>{{geofence.notification.text}}</p>
+    </ion-item>
+  </ion-list>
+</ion-content>
