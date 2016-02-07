@@ -1,0 +1,30 @@
+<ion-navbar *navbar>
+  <ion-title>Edit Geofence</ion-title>
+</ion-navbar>
+
+<ion-content class="geofence-details-page">
+  <ion-list>
+    <ion-item>
+      <ion-label stacked>Notification Text</ion-label>
+      <ion-input [(ngModel)]="geofence.notification.text" type="text" placeholder="Example: Buy a milk"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Notify When You?</ion-label>
+      <ion-select [(ngModel)]="transitionType" multiple="true">
+        <ion-option value="1">Enter Region</ion-option>
+        <ion-option value="2">Exit Region</ion-option>
+        <ion-option value="3">Both</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <div>
+        <ion-label stacked>on</ion-label>
+        <ion-content>
+          on
+          <input type="range" name="volume" min="50" max="5000">
+          1000m
+        </ion-content>
+      </div>
+    </ion-item>
+  </ion-list>
+</ion-content>

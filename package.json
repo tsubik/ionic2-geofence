@@ -11,9 +11,25 @@
   },
   "devDependencies": {
     "awesome-typescript-loader": "0.15.10",
+    "cordova": "^6.0.0",
+    "eslint": "^1.10.3",
+    "eslint-config-airbnb": "^5.0.0",
+    "ionic": "^2.0.0-beta.17",
     "strip-sourcemap-loader": "0.0.1",
-    "typescript": "1.7.5"
+    "typescript": "1.7.5",
+    "typescript-eslint-parser": "0.1.0-alpha-1"
   },
   "name": "ionic2-geofence",
-  "description": "ionic2-geofence: An Ionic project"
+  "description": "ionic2-geofence: An Ionic project",
+  "cordovaPlugins": [
+    "cordova-plugin-device",
+    "cordova-plugin-console",
+    "cordova-plugin-whitelist",
+    "cordova-plugin-splashscreen",
+    "cordova-plugin-statusbar",
+    "ionic-plugin-keyboard"
+  ],
+  "cordovaPlatforms": [
+    "android"
+  ]
 }
