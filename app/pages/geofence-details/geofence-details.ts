@@ -32,27 +32,29 @@ export class GeofenceDetailsPage {
   }
 
   loadMap() {
+    const latlng = Leaflet.latLng(this.geofence.latitude, this.geofence.longitude);
+
     this.map = Leaflet
       .map("map")
-      .locate({setView: true, maxZoom: 16})
+      .setView(latlng, 13)
       .on("click", this.onMapClicked.bind(this))
-      .on("locationfound", this.onLocationFound.bind(this))
-      .on("locationerror", this.onLocationError.bind(this));
 
     Leaflet.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png")
       .addTo(this.map);
-  }
-
-  onLocationFound(e) {
-    this.marker = Leaflet.marker(e.latlng).addTo(this.map);
-    this.circle = Leaflet.circle(e.latlng, this.geofence.radius).addTo(this.map);
-  }
-
-  onLocationError(e) {
-    console.log("Error: ", e.message);
+    this.marker = Leaflet
+      .marker(latlng, { draggable: true })
+      .on("dragend", this.onMarkerPositionChanged.bind(this))
+      .addTo(this.map);
+    this.circle = Leaflet.circle(latlng, this.geofence.radius).addTo(this.map);
   }
 
   onMapClicked(e) {
 
+  }
+
+  onMarkerPositionChanged(e) {
+    const marker = e.target;
+
+    this.circle.setLatLng(marker.getLatLng());
   }
 }
