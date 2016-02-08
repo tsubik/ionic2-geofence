@@ -3,31 +3,27 @@
 </ion-navbar>
 
 <ion-content class="geofence-details-page">
-  <ion-list>
+  <ion-list class="geofence-input-list">
     <ion-item>
-      <ion-label stacked>Notification Text</ion-label>
-      <ion-input [(ngModel)]="geofence.notification.text" type="text" placeholder="Example: Buy a milk"></ion-input>
+      <ion-input [(ngModel)]="geofence.notification.text" type="text" placeholder="Put notification text here. Example: Buy a milk"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label stacked>Notify When You?</ion-label>
-      <ion-select [(ngModel)]="geofence.transitionType">
+      <ion-label>When you?</ion-label>
+      <ion-select [(ngModel)]="transitionType">
         <ion-option value="1">Enter Region</ion-option>
         <ion-option value="2">Exit Region</ion-option>
         <ion-option value="3">Enter or Exit Region</ion-option>
       </ion-select>
     </ion-item>
-    <ion-item>
-      <div>
-        <ion-label stacked>on</ion-label>
-        <ion-content>
-          on
-          <input type="range" name="volume" min="50" max="5000">
-          1000m
-        </ion-content>
-      </div>
-    </ion-item>
   </ion-list>
-  <div style="width: 100%; position: absolute; top: 140px; bottom: 0px;">
+  <div class="geofence-radius-container">
+    <div>on</div>
+    <div class="geofence-radius-input-container">
+      <input [(ngModel)]="radius" type="range" min="50" max="5000">
+    </div>
+    <div>{{radius}}m</div>
+  </div>
+  <div class="map-container">
     <div id="map" style="width: 100%; height: 100%">
     </div>
   </div>

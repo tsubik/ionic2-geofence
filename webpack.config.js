@@ -47,6 +47,6 @@ module.exports = {
       ionic: "ionic-framework",
       "web-animations.min": path.normalize("ionic-framework/js/web-animations.min"),
     },
-    extensions: ["", ".js", ".ts"],
+    extensions: ["", ".ts", ".js"],
   },
 };
