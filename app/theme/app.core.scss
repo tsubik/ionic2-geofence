@@ -7,5 +7,7 @@
 // By default each design mode includes these shared imports.
 // App Shared Sass variables belong in app.variables.scss.
 
+@import "leaflet";
+
 @import "../pages/geofence-list/geofence-list";
 @import "../pages/geofence-details/geofence-details";

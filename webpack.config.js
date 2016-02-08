@@ -1,53 +1,52 @@
-var path = require('path');
-
+const path = require("path");
 
 module.exports = {
   entry: [
-    path.normalize('es6-shim/es6-shim.min'),
-    'reflect-metadata',
-    'web-animations.min',
-    path.normalize('zone.js/dist/zone-microtask'),
-    path.resolve('app/app')
+    path.normalize("es6-shim/es6-shim.min"),
+    "reflect-metadata",
+    "web-animations.min",
+    path.normalize("zone.js/dist/zone-microtask"),
+    path.resolve("app/app"),
   ],
   output: {
-    path: path.resolve('www/build/js'),
-    filename: 'app.bundle.js',
-    pathinfo: false // show module paths in the bundle, handy for debugging
+    path: path.resolve("www/build/js"),
+    filename: "app.bundle.js",
+    pathinfo: false, // show module paths in the bundle, handy for debugging
   },
   module: {
     loaders: [
       {
         test: /\.ts$/,
-        loader: 'awesome-typescript',
+        loader: "awesome-typescript",
         query: {
           doTypeCheck: false,
-          useWebpackText: true
+          useWebpackText: false,
         },
-        include: path.resolve('app'),
-        exclude: /node_modules/
+        include: path.resolve("app"),
+        exclude: /node_modules/,
       },
       {
         test: /\.js$/,
-        include: path.resolve('node_modules/angular2'),
-        loader: 'strip-sourcemap'
-      }
+        include: path.resolve("node_modules/angular2"),
+        loader: "strip-sourcemap",
+      },
     ],
     noParse: [
       /es6-shim/,
       /reflect-metadata/,
       /web-animations/,
-      /zone\.js(\/|\\)dist(\/|\\)zone-microtask/
-    ]
+      /zone\.js(\/|\\)dist(\/|\\)zone-microtask/,
+    ],
   },
   resolve: {
     root: [
-      'app'
+      "app",
     ],
     alias: {
-      'angular2': path.resolve('node_modules/angular2'),
-      'ionic': 'ionic-framework',
-      'web-animations.min': path.normalize('ionic-framework/js/web-animations.min')
+      angular2: path.resolve("node_modules/angular2"),
+      ionic: "ionic-framework",
+      "web-animations.min": path.normalize("ionic-framework/js/web-animations.min"),
     },
-    extensions: ['', '.js', '.ts']
-  }
+    extensions: ["", ".js", ".ts"],
+  },
 };
