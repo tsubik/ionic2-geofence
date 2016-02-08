@@ -1,13 +1,17 @@
 import { Page, NavController, NavParams } from "ionic/ionic";
 import * as Leaflet from "leaflet";
+import { GeofenceService } from "../../services/geofence-service";
 
 @Page({
   templateUrl: "build/pages/geofence-details/geofence-details.html"
 })
 export class GeofenceDetailsPage {
-  constructor(nav: NavController, navParams: NavParams) {
+  constructor(nav: NavController, navParams: NavParams, geofenceService: GeofenceService) {
     this.nav = nav;
-    this.geofence = navParams.get("geofence");
+    this.zone = zone;
+    this.geofenceService = geofenceService;
+    this.originalGeofence = navParams.get("geofence");
+    this.geofence = geofenceService.clone(this.originalGeofence);
   }
 
   get transitionType() {
@@ -28,7 +32,9 @@ export class GeofenceDetailsPage {
   }
 
   onPageLoaded() {
-    this.loadMap();
+    // workaround map is not correctly displayed
+    // maybe this should be done in some other event
+    setTimeout(this.loadMap.bind(this), 100);
   }
 
   loadMap() {
@@ -56,5 +62,12 @@ export class GeofenceDetailsPage {
     const marker = e.target;
 
     this.circle.setLatLng(marker.getLatLng());
+  }
+
+  saveChanges() {
+    Object.assign(this.originalGeofence, this.geofence)
+    this.geofenceService.addOrUpdate(this.geofence).then(() => {
+      this.nav.pop();
+    });
   }
 }

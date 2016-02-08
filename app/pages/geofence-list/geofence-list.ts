@@ -1,4 +1,4 @@
-import { Page, NavController } from "ionic/ionic";
+import { Page, NavController, Platform } from "ionic/ionic";
 import { GeofenceDetailsPage } from "../geofence-details/geofence-details";
 import { GeofenceService } from "../../services/geofence-service";
 
@@ -6,10 +6,14 @@ import { GeofenceService } from "../../services/geofence-service";
   templateUrl: "build/pages/geofence-list/geofence-list.html"
 })
 export class GeofenceListPage {
-  constructor(nav: NavController, geofenceService: GeofenceService) {
-    this.geofenceService = geofenceService;
-    this.nav = nav;
-    geofenceService.findAll().then(geofences => this.geofences=geofences)
+  constructor(
+    private nav: NavController,
+    private geofenceService: GeofenceService
+    private platform: Platform
+  ) {
+    this.platform.ready().then(() => {
+      this.geofenceService.findAll().then(geofences => this.geofences=geofences)
+    });
   }
 
   new() {
