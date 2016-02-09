@@ -3,16 +3,9 @@
 </ion-navbar>
 
 <ion-content class="geofence-list-page">
-
-  <ion-list *ngIf="!isLoading && geofences.length > 0">
-    <ion-item-sliding *ngFor="#geofence of geofences">
-      <ion-item (click)="itemTapped($event, geofence)">
-        <p>{{geofence.notification.text}}</p>
-      </ion-item>
-      <ion-item-options>
-        <button (click)="remove(geofence)">Remove</button>
-      </ion-item-options>
-    </ion-item-sliding>
+  <ion-list inset *ngIf="!isLoading && geofences.length > 0">
+    <geofence-list-item *ngFor="#geofence of geofences" [geofence]="geofence" (onItemTapped)="geofenceItemTapped(geofence)">
+    </geofence-list-item>
   </ion-list>
   <ion-card *ngIf="!isLoading && geofences.length === 0">
     <ion-card-header>

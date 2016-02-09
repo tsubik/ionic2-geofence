@@ -1,9 +1,11 @@
-import { Page, NavController, Platform } from "ionic/ionic";
+import { Page, NavController, Platform, ActionSheet } from "ionic/ionic";
 import { GeofenceDetailsPage } from "../geofence-details/geofence-details";
 import { GeofenceService } from "../../services/geofence-service";
+import { GeofenceListItem } from "../../components/geofence-list-item/geofence-list-item";
 
 @Page({
-  templateUrl: "build/pages/geofence-list/geofence-list.html"
+  templateUrl: "build/pages/geofence-list/geofence-list.html",
+  directives: [GeofenceListItem]
 })
 export class GeofenceListPage {
   constructor(
@@ -39,7 +41,7 @@ export class GeofenceListPage {
     );
   }
 
-  itemTapped(event, geofence) {
+  geofenceItemTapped(geofence) {
     this.transitionToDetailsPage(geofence);
   }
 
