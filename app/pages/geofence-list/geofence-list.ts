@@ -11,8 +11,14 @@ export class GeofenceListPage {
     private geofenceService: GeofenceService
     private platform: Platform
   ) {
+    this.isLoading = true;
     this.platform.ready().then(() => {
-      this.geofenceService.findAll().then(geofences => this.geofences=geofences)
+      this.geofenceService.findAll()
+        .then(geofences => {
+          this.geofences = geofences;
+          this.isLoading = false;
+        })
+        .catch(() => this.isLoading = false);
     });
   }
 
