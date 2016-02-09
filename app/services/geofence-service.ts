@@ -44,7 +44,9 @@ export class GeofenceService {
 
   findAll() {
     return window.geofence.getWatched()
-      .then((geofences) => {
+      .then((geofencesJson) => {
+        const geofences = JSON.parse(geofencesJson);
+
         this.geofences = geofences;
         return geofences;
       });

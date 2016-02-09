@@ -6,35 +6,7 @@ import GeofencePluginMock from "./services/geofence-plugin-mock";
 import { FIXTURES } from "./models/geofence";
 
 @App({
-  template: `
-<ion-menu [content]="content" id="leftMenu" side="left">
-  <ion-toolbar>
-    <ion-title>Ionic2 Geofence</ion-title>
-  </ion-toolbar>
-  <ion-content>
-    <ion-list>
-      <button ion-item (click)="addFixtures()">
-        <ion-icon name="add"></ion-icon>
-        Add Fixtures
-      </button>
-      <button ion-item (click)="removeAll()">
-        <ion-icon name="trash"></ion-icon>
-        Remove All Geofences
-      </button>
-      <button ion-item>
-        <ion-icon name="checkmark"></ion-icon>
-        Test Application
-      </button>
-      <a ion-item href="https://github.com">
-        <ion-icon name="logo-github"></ion-icon>
-        Source
-      </a>
-    </ion-list>
-  </ion-content>
-</ion-menu>
-
-<ion-nav #content [root]="rootPage"></ion-nav>
-`,
+  templateUrl: "build/app.html",
   config: {}, // http://ionicframework.com/docs/v2/api/config/Config/
   providers: [GeofenceService]
 })
@@ -50,7 +22,9 @@ export class MyApp {
         window.geofence = GeofencePluginMock;
         window.TransitionType = GeofencePluginMock.TransitionType;
       }
-    });
+
+      window.geofence.initialize();
+    );
   }
 
   addFixtures() {
@@ -62,6 +36,6 @@ export class MyApp {
   }
 
   testApp() {
-
+    window.location.href = "cdvtests/index.html";
   }
 }

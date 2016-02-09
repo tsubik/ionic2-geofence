@@ -7,9 +7,7 @@ export default {
     return Promise.resolve();
   },
   getWatched() {
-    return Promise.resolve(
-      FIXTURES.map((geofence) => JSON.parse(JSON.stringify(geofence)))
-    );
+    return Promise.resolve(JSON.stringify(FIXTURES));
   },
   remove(ids) {
     console.log("Mocked geofence plugin remove", ids);
