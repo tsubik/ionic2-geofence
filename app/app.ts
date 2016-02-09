@@ -1,4 +1,4 @@
-import { App, Platform } from "ionic/ionic";
+import { App, IonicApp, Platform, Alert } from "ionic/ionic";
 import { GeofenceListPage } from "./pages/geofence-list/geofence-list";
 import * as Leaflet from "leaflet";
 import { GeofenceService } from "./services/geofence-service";
@@ -11,7 +11,7 @@ import { FIXTURES } from "./models/geofence";
   providers: [GeofenceService]
 })
 export class MyApp {
-  constructor(platform: Platform, private geofenceService: GeofenceService) {
+  constructor(platform: Platform, private app: IonicApp, private geofenceService: GeofenceService) {
     this.rootPage = GeofenceListPage;
 
     platform.ready().then(() => {
@@ -24,7 +24,7 @@ export class MyApp {
       }
 
       window.geofence.initialize();
-    );
+    });
   }
 
   addFixtures() {
@@ -32,10 +32,40 @@ export class MyApp {
   }
 
   removeAll() {
-    this.geofenceService.removeAll();
+    const confirm = Alert.create({
+      title: "Are you sure?",
+      body: "Are you sure you want to remove all geofences?",
+      buttons: [
+        { text: "No" },
+        {
+          text: "Yes",
+          handler: () => {
+            this.geofenceService.removeAll();
+          },
+        },
+      ],
+    });
+
+    this.app.getComponent("leftMenu").close();
+    this.app.getComponent("nav").present(confirm);
   }
 
   testApp() {
-    window.location.href = "cdvtests/index.html";
+    const confirm = Alert.create({
+      title: "Are you sure?",
+      body: "Running tests will remove all your geofences. Do you want to continue?",
+      buttons: [
+        { text: "No" },
+        {
+          text: "Yes",
+          handler: () => {
+            window.location.href = "cdvtests/index.html";
+          },
+        },
+      ],
+    });
+
+    this.app.getComponent("leftMenu").close();
+    this.app.getComponent("nav").present(confirm);
   }
 }
