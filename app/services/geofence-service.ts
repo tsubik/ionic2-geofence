@@ -69,6 +69,12 @@ export class GeofenceService {
     });
   }
 
+  remove(geofence) {
+    return window.geofence.remove(geofence.id).then(() => {
+      this.geofences.splice(this.geofences.indexOf(geofence), 1);
+    });
+  }
+
   private generateId() {
     var d = new Date().getTime();
     let uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {

@@ -22,7 +22,27 @@ export class GeofenceListItem {
 
   }
 
+  get header() {
+    return this.geofence.notification.text;
+  }
+
+  get details() {
+    return `When ${this.transitionTypeText} within ${this.geofence.radius}m`;
+  }
+
+  get transitionTypeText() {
+    switch(this.geofence.transitionType) {
+      case 1: return "entering region";
+      case 2: return "exiting region";
+      case 3: return "entering or exiting region";
+    }
+  }
+
   itemTapped() {
     this.onItemTapped.emit();
+  }
+
+  remove() {
+    this.geofenceService.remove(this.geofence);
   }
 }
