@@ -66,7 +66,7 @@ export class GeofenceDetailsPage {
 
   saveChanges() {
     Object.assign(this.originalGeofence, this.geofence)
-    this.geofenceService.addOrUpdate(this.geofence).then(() => {
+    this.geofenceService.addOrUpdate(this.originalGeofence).then(() => {
       this.nav.pop();
     });
   }
