@@ -1,4 +1,4 @@
-import { Page, NavController, Platform, ActionSheet } from "ionic/ionic";
+import { Page, NavController, Platform, IonicApp } from "ionic/ionic";
 import { GeofenceDetailsPage } from "../geofence-details/geofence-details";
 import { GeofenceService } from "../../services/geofence-service";
 import { GeofenceListItem } from "../../components/geofence-list-item/geofence-list-item";
@@ -11,7 +11,8 @@ export class GeofenceListPage {
   constructor(
     private nav: NavController,
     private geofenceService: GeofenceService,
-    private platform: Platform
+    private platform: Platform,
+    private app: IonicApp
   ) {
     this.isLoading = true;
     this.platform.ready().then(() => {
@@ -22,6 +23,12 @@ export class GeofenceListPage {
         })
         .catch(() => this.isLoading = false);
     });
+  }
+
+  onPageDidEnter() {
+    const menu = this.app.getComponent("leftMenu");
+
+    menu.enable(true);
   }
 
   new() {
