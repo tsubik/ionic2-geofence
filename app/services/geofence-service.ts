@@ -1,5 +1,6 @@
 import { Injectable } from "angular2/core";
 import { Geofence } from "../models/geofence";
+import generateUUID from "../utils/uuid";
 
 @Injectable()
 export class GeofenceService {
@@ -7,7 +8,7 @@ export class GeofenceService {
 
   create(attributes) {
     const defaultGeofence = {
-      id: this.generateId(),
+      id: generateUUID(),
       latitude: 50,
       longitude: 50,
       radius: 1000,
@@ -72,17 +73,6 @@ export class GeofenceService {
     return window.geofence.remove(geofence.id).then(() => {
       this.geofences.splice(this.geofences.indexOf(geofence), 1);
     });
-  }
-
-  private generateId() {
-    var d = new Date().getTime();
-    let uuid = "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function (c) {
-      let r = (d + Math.random()*16)%16 | 0;
-      d = Math.floor(d/16);
-
-      return (c == "x" ? r : (r&0x3|0x8)).toString(16);
-    });
-    return uuid;
   }
 
   private getNextNotificationId() {
