@@ -1,3 +1,5 @@
+import { Notification } from "./notification";
+
 export const FIXTURES = [
   { id: "1", latitude: 50.3021079, longitude: 18.6771861, radius: 3000, transitionType: 1, notification: { text: "Gliwice Train Station"} },
   { id: "2", latitude: 50.4728049, longitude: 19.0736874, radius: 3000, transitionType: 1, notification: { text: "Pyrzowice Airport"} },
