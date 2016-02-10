@@ -11,7 +11,11 @@ import { FIXTURES } from "./models/geofence";
   providers: [GeofenceService]
 })
 export class MyApp {
-  constructor(platform: Platform, private app: IonicApp, private geofenceService: GeofenceService) {
+  constructor(
+    platform: Platform,
+    private app: IonicApp,
+    private geofenceService: GeofenceService
+  ) {
     this.rootPage = GeofenceListPage;
 
     platform.ready().then(() => {

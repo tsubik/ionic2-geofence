@@ -6,9 +6,11 @@ import { GeofenceService } from "../../services/geofence-service";
   templateUrl: "build/pages/geofence-details/geofence-details.html"
 })
 export class GeofenceDetailsPage {
-  constructor(nav: NavController, navParams: NavParams, geofenceService: GeofenceService) {
-    this.nav = nav;
-    this.zone = zone;
+  constructor(
+    private nav: NavController,
+    navParams: NavParams,
+    private geofenceService: GeofenceService
+  ) {
     this.geofenceService = geofenceService;
     this.originalGeofence = navParams.get("geofence");
     this.geofence = geofenceService.clone(this.originalGeofence);
@@ -53,15 +55,23 @@ export class GeofenceDetailsPage {
       .addTo(this.map);
     this.circle = Leaflet.circle(latlng, this.geofence.radius).addTo(this.map);
   }
-
+  // TODO: Try some observables
   onMapClicked(e) {
+    const latlng = e.latlng;
 
+    this.marker.setLatLng(latlng);
+    this.circle.setLatLng(latlng);
+    this.geofence.latitude = latlng.lat;
+    this.geofence.longitude = latlng.lng;
   }
 
   onMarkerPositionChanged(e) {
     const marker = e.target;
+    const latlng = marker.getLatLng();
 
-    this.circle.setLatLng(marker.getLatLng());
+    this.circle.setLatLng(latlng);
+    this.geofence.latitude = latlng.lat;
+    this.geofence.longitude = latlng.lng;
   }
 
   saveChanges() {

@@ -10,7 +10,7 @@ import { GeofenceListItem } from "../../components/geofence-list-item/geofence-l
 export class GeofenceListPage {
   constructor(
     private nav: NavController,
-    private geofenceService: GeofenceService
+    private geofenceService: GeofenceService,
     private platform: Platform
   ) {
     this.isLoading = true;
