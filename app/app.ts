@@ -33,6 +33,7 @@ export class MyApp {
 
   addFixtures() {
     FIXTURES.forEach((fixture) => this.geofenceService.addOrUpdate(fixture));
+    this.app.getComponent("leftMenu").close();
   }
 
   removeAll() {
