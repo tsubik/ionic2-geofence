@@ -20,14 +20,16 @@
         <ion-option value="3">Enter or Exit Region</ion-option>
       </ion-select>
     </ion-item>
+    <ion-item>
+      <div class="geofence-radius-container">
+        <div>on</div>
+        <div class="geofence-radius-input-container">
+          <input [(ngModel)]="radius" type="range" min="50" max="5000">
+        </div>
+        <div>{{radius}}m</div>
+      </div>
+    </ion-item>
   </ion-list>
-  <div class="geofence-radius-container">
-    <div>on</div>
-    <div class="geofence-radius-input-container">
-      <input [(ngModel)]="radius" type="range" min="50" max="5000">
-    </div>
-    <div>{{radius}}m</div>
-  </div>
   <div class="map-container">
     <div id="map" style="width: 100%; height: 100%">
     </div>
