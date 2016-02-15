@@ -2,12 +2,16 @@ import { Page, NavController, Platform, IonicApp } from "ionic/ionic";
 import { GeofenceDetailsPage } from "../geofence-details/geofence-details";
 import { GeofenceService } from "../../services/geofence-service";
 import { GeofenceListItem } from "../../components/geofence-list-item/geofence-list-item";
+import { Geofence } from "../../models/geofence";
 
 @Page({
   templateUrl: "build/pages/geofence-list/geofence-list.html",
   directives: [GeofenceListItem]
 })
 export class GeofenceListPage {
+  isLoading: boolean = false;
+  geofences: [Geofence];
+
   constructor(
     private nav: NavController,
     private geofenceService: GeofenceService,
