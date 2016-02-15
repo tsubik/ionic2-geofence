@@ -11,7 +11,6 @@ Use local npm packages
 
 ```
 npm install
-bower install
 ```
 
 For testing in the browser
