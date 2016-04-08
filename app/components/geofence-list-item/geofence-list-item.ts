@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter } from "angular2/core";
 import { Geofence } from "../../models/geofence";
-import { IONIC_DIRECTIVES } from "ionic/ionic";
+import { IONIC_DIRECTIVES } from "ionic-angular";
 import { GeofenceService } from "../../services/geofence-service";
 
 /*

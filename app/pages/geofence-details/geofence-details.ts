@@ -1,4 +1,4 @@
-import { Page, NavController, NavParams, IonicApp } from "ionic/ionic";
+import { Page, NavController, NavParams, IonicApp } from "ionic-angular";
 import * as Leaflet from "leaflet";
 import { GeofenceService } from "../../services/geofence-service";
 import { Geofence } from "../../models/geofence";

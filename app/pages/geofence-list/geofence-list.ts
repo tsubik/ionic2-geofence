@@ -1,4 +1,4 @@
-import { Page, NavController, Platform, IonicApp } from "ionic/ionic";
+import { Page, NavController, Platform, IonicApp } from "ionic-angular";
 import { GeofenceDetailsPage } from "../geofence-details/geofence-details";
 import { GeofenceService } from "../../services/geofence-service";
 import { GeofenceListItem } from "../../components/geofence-list-item/geofence-list-item";
