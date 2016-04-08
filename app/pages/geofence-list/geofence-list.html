@@ -10,6 +10,7 @@
     <geofence-list-item *ngFor="#geofence of geofences" [geofence]="geofence" (onItemTapped)="geofenceItemTapped(geofence)">
     </geofence-list-item>
   </ion-list>
+
   <ion-card *ngIf="!isLoading && geofences.length === 0">
     <ion-card-header>
       There is no geofences yet.
@@ -22,6 +23,6 @@
   </ion-card>
 </ion-content>
 
-<button fab fab-right fab-bottom (click)="new()">
+<button fab fab-right fab-bottom (click)="new()" class="add-geofence-button">
   <ion-icon name="add"></ion-icon>
 </button>

@@ -1,3 +1,9 @@
 .geofence-list-page {
+  ion-list {
+    margin-bottom: 80px;        /*space for fab button*/
+  }
+}
 
+.add-geofence-button {
+  z-index: 100;
 }
