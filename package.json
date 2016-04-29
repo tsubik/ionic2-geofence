@@ -1,15 +1,14 @@
 {
   "dependencies": {
-    "angular2": "2.0.0-beta.13",
-    "es6-promise": "3.1.2",
+    "angular2": "2.0.0-beta.15",
     "es6-shim": "^0.35.0",
-    "ionic-angular": "2.0.0-beta.4",
+    "ionic-angular": "2.0.0-beta.6",
     "ionic-native": "^1.1.0",
-    "ionicons": "3.0.0-alpha.3",
+    "ionicons": "3.0.0",
     "leaflet": "^0.7.7",
     "reflect-metadata": "0.1.2",
     "rxjs": "5.0.0-beta.2",
-    "zone.js": "0.6.6"
+    "zone.js": "0.6.10"
   },
   "devDependencies": {
     "cordova": "^6.0.0",
@@ -21,7 +20,7 @@
     "ionic-gulp-fonts-copy": "^1.0.0",
     "ionic-gulp-html-copy": "^1.0.0",
     "ionic-gulp-sass-build": "^1.0.0",
-    "ionic-gulp-scripts-copy": "^1.0.0",
+    "ionic-gulp-scripts-copy": "^1.0.1",
     "run-sequence": "^1.1.5"
   },
   "name": "ionic2-geofence",

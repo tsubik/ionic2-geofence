@@ -1,4 +1,3 @@
-import "es6-shim";
 import { App, IonicApp, Platform, Alert } from "ionic-angular";
 import { GeofenceListPage } from "./pages/geofence-list/geofence-list";
 import * as Leaflet from "leaflet";

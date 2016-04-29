@@ -32,9 +32,9 @@
       "resolved": "https://registry.npmjs.org/amdefine/-/amdefine-1.0.0.tgz"
     },
     "angular2": {
-      "version": "2.0.0-beta.13",
-      "from": "angular2@2.0.0-beta.13",
-      "resolved": "https://registry.npmjs.org/angular2/-/angular2-2.0.0-beta.13.tgz"
+      "version": "2.0.0-beta.15",
+      "from": "angular2@2.0.0-beta.15",
+      "resolved": "https://registry.npmjs.org/angular2/-/angular2-2.0.0-beta.15.tgz"
     },
     "ansi": {
       "version": "0.3.1",
@@ -1031,11 +1031,6 @@
       "version": "2.0.0",
       "from": "es6-iterator@>=2.0.0 <3.0.0",
       "resolved": "https://registry.npmjs.org/es6-iterator/-/es6-iterator-2.0.0.tgz"
-    },
-    "es6-promise": {
-      "version": "3.1.2",
-      "from": "es6-promise@3.1.2",
-      "resolved": "https://registry.npmjs.org/es6-promise/-/es6-promise-3.1.2.tgz"
     },
     "es6-shim": {
       "version": "0.35.0",
@@ -7611,9 +7606,9 @@
       }
     },
     "ionic-angular": {
-      "version": "2.0.0-beta.4",
-      "from": "ionic-angular@2.0.0-beta.4",
-      "resolved": "https://registry.npmjs.org/ionic-angular/-/ionic-angular-2.0.0-beta.4.tgz"
+      "version": "2.0.0-beta.6",
+      "from": "ionic-angular@2.0.0-beta.6",
+      "resolved": "https://registry.npmjs.org/ionic-angular/-/ionic-angular-2.0.0-beta.6.tgz"
     },
     "ionic-gulp-browserify-typescript": {
       "version": "1.1.0",
@@ -7804,7 +7799,7 @@
     },
     "ionic-gulp-scripts-copy": {
       "version": "1.0.1",
-      "from": "ionic-gulp-scripts-copy@>=1.0.0 <2.0.0",
+      "from": "ionic-gulp-scripts-copy@>=1.0.1 <2.0.0",
       "resolved": "https://registry.npmjs.org/ionic-gulp-scripts-copy/-/ionic-gulp-scripts-copy-1.0.1.tgz"
     },
     "ionic-native": {
@@ -7813,9 +7808,9 @@
       "resolved": "https://registry.npmjs.org/ionic-native/-/ionic-native-1.1.1.tgz"
     },
     "ionicons": {
-      "version": "3.0.0-alpha.3",
-      "from": "ionicons@3.0.0-alpha.3",
-      "resolved": "https://registry.npmjs.org/ionicons/-/ionicons-3.0.0-alpha.3.tgz"
+      "version": "3.0.0",
+      "from": "ionicons@3.0.0",
+      "resolved": "https://registry.npmjs.org/ionicons/-/ionicons-3.0.0.tgz"
     },
     "ipaddr.js": {
       "version": "1.0.5",
@@ -11239,9 +11234,9 @@
       }
     },
     "zone.js": {
-      "version": "0.6.6",
-      "from": "zone.js@0.6.6",
-      "resolved": "https://registry.npmjs.org/zone.js/-/zone.js-0.6.6.tgz"
+      "version": "0.6.10",
+      "from": "zone.js@0.6.10",
+      "resolved": "https://registry.npmjs.org/zone.js/-/zone.js-0.6.10.tgz"
     }
   }
 }
