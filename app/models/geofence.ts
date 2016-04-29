@@ -1,5 +1,3 @@
-import { Notification } from "./notification";
-
 export const FIXTURES = [
   { id: "1", latitude: 50.3021079, longitude: 18.6771861, radius: 3000, transitionType: 1, notification: { text: "Gliwice Train Station"} },
   { id: "2", latitude: 50.4728049, longitude: 19.0736874, radius: 3000, transitionType: 1, notification: { text: "Pyrzowice Airport"} },
@@ -9,12 +7,3 @@ export const FIXTURES = [
   { id: "6", latitude: 34.0033907, longitude: -118.5069657, radius: 3000, transitionType: 2, notification: { text: "LA - Santa Monica State Beach"} },
   { id: "7", latitude: 25.8938595, longitude: -80.1330216, radius: 500, transitionType: 1, notification: { text: "Dexter's Apartment - Miami Bay Harbour" } },
 ];
-
-export interface Geofence {
-  id: string;
-  latitude: number;
-  longitude: number;
-  radius: number;
-  transitionType: number;
-  notification: Notification;
-};

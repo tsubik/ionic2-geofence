@@ -1,5 +1,4 @@
 import { Injectable } from "angular2/core";
-import { Geofence } from "../models/geofence";
 import generateUUID from "../utils/uuid";
 
 @Injectable()
@@ -12,7 +11,7 @@ export class GeofenceService {
       latitude: 50,
       longitude: 50,
       radius: 1000,
-      transitionType: TransitionType.ENTER,
+      transitionType: window.TransitionType.ENTER,
       notification: {
         id: this.getNextNotificationId(),
         title: "Ionic geofence example",

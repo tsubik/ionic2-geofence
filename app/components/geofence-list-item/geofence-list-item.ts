@@ -1,5 +1,4 @@
 import { Component, Input, Output, EventEmitter } from "angular2/core";
-import { Geofence } from "../../models/geofence";
 import { IONIC_DIRECTIVES } from "ionic-angular";
 import { GeofenceService } from "../../services/geofence-service";
 
@@ -16,7 +15,7 @@ import { GeofenceService } from "../../services/geofence-service";
 })
 export class GeofenceListItem {
   @Input() geofence: Geofence;
-  @Output() onItemTapped = new EventEmitter();
+  @Output() onItemTapped: EventEmitter<any> = new EventEmitter();
 
   constructor(private geofenceService: GeofenceService) {
 
@@ -39,7 +38,7 @@ export class GeofenceListItem {
   }
 
   itemTapped() {
-    this.onItemTapped.emit();
+    this.onItemTapped.emit(null);
   }
 
   remove() {

@@ -11,13 +11,13 @@ import { FIXTURES } from "./models/geofence";
   providers: [GeofenceService]
 })
 export class MyApp {
+  rootPage: any = GeofenceListPage;
+
   constructor(
     platform: Platform,
     private app: IonicApp,
     private geofenceService: GeofenceService
   ) {
-    this.rootPage = GeofenceListPage;
-
     platform.ready().then(() => {
       Leaflet.Icon.Default.imagePath = "img";
 
@@ -39,7 +39,7 @@ export class MyApp {
   removeAll() {
     const confirm = Alert.create({
       title: "Are you sure?",
-      body: "Are you sure you want to remove all geofences?",
+      message: "Are you sure you want to remove all geofences?",
       buttons: [
         { text: "No" },
         {
@@ -58,7 +58,7 @@ export class MyApp {
   testApp() {
     const confirm = Alert.create({
       title: "Are you sure?",
-      body: "Running tests will remove all your geofences. Do you want to continue?",
+      message: "Running tests will remove all your geofences. Do you want to continue?",
       buttons: [
         { text: "No" },
         {
