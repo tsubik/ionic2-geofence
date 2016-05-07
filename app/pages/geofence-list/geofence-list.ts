@@ -2,6 +2,7 @@ import { Page, NavController, Platform, IonicApp } from "ionic-angular";
 import { GeofenceDetailsPage } from "../geofence-details/geofence-details";
 import { GeofenceService } from "../../services/geofence-service";
 import { GeofenceListItem } from "../../components/geofence-list-item/geofence-list-item";
+import { Splashscreen } from "ionic-native";
 
 @Page({
   templateUrl: "build/pages/geofence-list/geofence-list.html",
@@ -32,6 +33,10 @@ export class GeofenceListPage {
     const menu = this.app.getComponent("leftMenu");
 
     menu.enable(true);
+  }
+
+  onPageLoaded() {
+    Splashscreen.hide();
   }
 
   new() {
