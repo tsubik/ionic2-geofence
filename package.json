@@ -25,7 +25,9 @@
   },
   "name": "ionic2-geofence",
   "description": "ionic2-geofence: An Ionic project",
-  "cordovaPlugins": [],
+  "cordovaPlugins": [
+    "cordova-plugin-splashscreen"
+  ],
   "cordovaPlatforms": [
     "ios"
   ]
