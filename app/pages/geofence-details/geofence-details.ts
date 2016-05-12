@@ -63,7 +63,7 @@ export class GeofenceDetailsPage {
       .setView(this.latLng, 13)
       .on("click", this.onMapClicked.bind(this))
 
-    Leaflet.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png")
+    Leaflet.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png")
       .addTo(this.map);
 
     this.marker = Leaflet
