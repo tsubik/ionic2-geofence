@@ -8479,7 +8479,8 @@
           "dependencies": {
             "minimatch": {
               "version": "3.0.0",
-              "from": "minimatch@>=2.0.0 <3.0.0||>=3.0.0 <4.0.0"
+              "from": "minimatch@3.0.0",
+              "resolved": "https://registry.npmjs.org/minimatch/-/minimatch-3.0.0.tgz"
             }
           }
         },
