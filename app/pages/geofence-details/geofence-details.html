@@ -21,13 +21,10 @@
       </ion-select>
     </ion-item>
     <ion-item>
-      <div class="geofence-radius-container">
-        <div>on</div>
-        <div class="geofence-radius-input-container">
-          <input [(ngModel)]="radius" type="range" min="50" max="5000">
-        </div>
-        <div>{{radius}}m</div>
-      </div>
+      <ion-range min="50" max="5000" [(ngModel)]="radius" secondary>
+        <ion-label range-left>on</ion-label>
+        <ion-label range-right>{{radius}}m</ion-label>
+      </ion-range>
     </ion-item>
   </ion-list>
   <div class="map-container">
