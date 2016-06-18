@@ -7,7 +7,7 @@
 
 <ion-content class="geofence-list-page">
   <ion-list inset *ngIf="!isLoading && geofences.length > 0">
-    <geofence-list-item *ngFor="#geofence of geofences" [geofence]="geofence" (onItemTapped)="geofenceItemTapped(geofence)">
+    <geofence-list-item *ngFor="let geofence of geofences" [geofence]="geofence" (onItemTapped)="geofenceItemTapped(geofence)">
     </geofence-list-item>
   </ion-list>
 

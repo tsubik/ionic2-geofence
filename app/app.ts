@@ -1,22 +1,23 @@
-import { App, IonicApp, Platform, Alert } from "ionic-angular";
+import { Component, ViewChild } from "@angular/core";
+import { ionicBootstrap, Nav, Platform, Alert, MenuController } from "ionic-angular";
 import { GeofenceListPage } from "./pages/geofence-list/geofence-list";
 import * as Leaflet from "leaflet";
 import { GeofenceService } from "./services/geofence-service";
 import GeofencePluginMock from "./services/geofence-plugin-mock";
 import { FIXTURES } from "./models/geofence";
 
-@App({
-  templateUrl: "build/app.html",
-  config: {}, // http://ionicframework.com/docs/v2/api/config/Config/
-  providers: [GeofenceService]
+@Component({
+  templateUrl: "build/app.html"
 })
 export class MyApp {
+  @ViewChild(Nav) nav: Nav;
+
   rootPage: any = GeofenceListPage;
 
   constructor(
     platform: Platform,
-    private app: IonicApp,
-    private geofenceService: GeofenceService
+    private geofenceService: GeofenceService,
+    private menu: MenuController
   ) {
     platform.ready().then(() => {
       Leaflet.Icon.Default.imagePath = "img";
@@ -33,7 +34,7 @@ export class MyApp {
 
   addFixtures() {
     FIXTURES.forEach((fixture) => this.geofenceService.addOrUpdate(fixture));
-    this.app.getComponent("leftMenu").close();
+    this.menu.close();
   }
 
   removeAll() {
@@ -51,8 +52,8 @@ export class MyApp {
       ],
     });
 
-    this.app.getComponent("leftMenu").close();
-    this.app.getComponent("nav").present(confirm);
+    this.menu.close();
+    this.nav.present(confirm);
   }
 
   testApp() {
@@ -70,7 +71,14 @@ export class MyApp {
       ],
     });
 
-    this.app.getComponent("leftMenu").close();
-    this.app.getComponent("nav").present(confirm);
+    this.menu.close();
+    this.nav.present(confirm);
   }
 }
+
+// Pass the main app component as the first argument
+// Pass any providers for your app in the second argument
+// Set any config for your app as the third argument:
+// http://ionicframework.com/docs/v2/api/config/Config/
+
+ionicBootstrap(MyApp, [GeofenceService], {});

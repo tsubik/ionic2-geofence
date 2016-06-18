@@ -1,8 +1,9 @@
-import { Page, NavController, NavParams, IonicApp } from "ionic-angular";
+import { Component } from "@angular/core";
+import { NavController, NavParams, MenuController } from "ionic-angular";
 import * as Leaflet from "leaflet";
 import { GeofenceService } from "../../services/geofence-service";
 
-@Page({
+@Component({
   templateUrl: "build/pages/geofence-details/geofence-details.html"
 })
 export class GeofenceDetailsPage {
@@ -19,7 +20,7 @@ export class GeofenceDetailsPage {
     private nav: NavController,
     navParams: NavParams,
     private geofenceService: GeofenceService,
-    private app: IonicApp
+    private menu: MenuController
   ) {
     this.geofenceService = geofenceService;
     this.geofence = navParams.get("geofence");
@@ -48,10 +49,8 @@ export class GeofenceDetailsPage {
     return this._latLng;
   }
 
-  onPageLoaded() {
-    const menu = this.app.getComponent("leftMenu");
-
-    menu.enable(false);
+  ionViewLoaded() {
+    this.menu.enable(false);
     // workaround map is not correctly displayed
     // maybe this should be done in some other event
     setTimeout(this.loadMap.bind(this), 100);

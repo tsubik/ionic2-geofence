@@ -1,10 +1,11 @@
-import { Page, NavController, Platform, IonicApp } from "ionic-angular";
+import { Component } from "@angular/core";
+import { NavController, Platform, MenuController } from "ionic-angular";
 import { GeofenceDetailsPage } from "../geofence-details/geofence-details";
 import { GeofenceService } from "../../services/geofence-service";
 import { GeofenceListItem } from "../../components/geofence-list-item/geofence-list-item";
 import { Splashscreen } from "ionic-native";
 
-@Page({
+@Component({
   templateUrl: "build/pages/geofence-list/geofence-list.html",
   directives: [GeofenceListItem]
 })
@@ -16,7 +17,7 @@ export class GeofenceListPage {
     private nav: NavController,
     private geofenceService: GeofenceService,
     private platform: Platform,
-    private app: IonicApp
+    private menu: MenuController
   ) {
     this.isLoading = true;
     this.platform.ready().then(() => {
@@ -29,13 +30,11 @@ export class GeofenceListPage {
     });
   }
 
-  onPageDidEnter() {
-    const menu = this.app.getComponent("leftMenu");
-
-    menu.enable(true);
+  ionViewDidEnter() {
+    this.menu.enable(true);
   }
 
-  onPageLoaded() {
+  ionViewLoaded() {
     Splashscreen.hide();
   }
 
