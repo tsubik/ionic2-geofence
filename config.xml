@@ -73,6 +73,7 @@
   <preference name="FadeSplashScreen" value="true"/>
   <preference name="FadeSplashScreenDuration" value="1"/>
   <preference name="Orientation" value="portrait"/>
+  <preference name="UseLegacySwiftLanguageVersion" value="true"/>
   <feature name="StatusBar">
     <param name="ios-package" onload="true" value="CDVStatusBar"/>
   </feature>
