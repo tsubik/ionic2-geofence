@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Ionic2 Geofence Example</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="geofence-list-page">
+  <ion-list inset *ngIf="!isLoading && geofences.length > 0">
+    <geofence-list-item *ngFor="let geofence of geofences" [geofence]="geofence" (onItemTapped)="geofenceItemTapped(geofence)">
+    </geofence-list-item>
+  </ion-list>
+
+  <ion-card *ngIf="!isLoading && geofences.length === 0">
+    <ion-card-header>
+      There are no geofences yet.
+    </ion-card-header>
+  </ion-card>
+  <ion-card *ngIf="isLoading">
+    <ion-card-header>
+      Loading geofences...
+    </ion-card-header>
+  </ion-card>
+</ion-content>
+
+<ion-fab bottom right>
+  <button ion-fab (click)="new()" class="add-geofence-button">
+    <ion-icon name="add"></ion-icon>
+  </button>
+</ion-fab>

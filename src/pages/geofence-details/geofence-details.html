@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Edit Geofence</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="saveChanges()">
+        Save
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="geofence-details-page">
+  <ion-list class="geofence-input-list">
+    <ion-item>
+      <ion-input [(ngModel)]="notificationText" type="text" placeholder="Put notification text here. Example: Buy a milk"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>When you?</ion-label>
+      <ion-select [(ngModel)]="transitionType">
+        <ion-option value="1">Enter Region</ion-option>
+        <ion-option value="2">Exit Region</ion-option>
+        <ion-option value="3">Enter or Exit Region</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-range min="50" max="5000" [(ngModel)]="radius" secondary>
+        <ion-label range-left>on</ion-label>
+        <ion-label range-right>{{radius}}m</ion-label>
+      </ion-range>
+    </ion-item>
+  </ion-list>
+  <div class="map-container">
+    <div id="map">
+    </div>
+  </div>
+</ion-content>
