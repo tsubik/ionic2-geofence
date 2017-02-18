@@ -40,6 +40,7 @@ interface GeofencePlugin {
   ): Promise<string>;
 
   onTransitionReceived: (geofences: Geofence[]) => void;
+  onNotificationClicked: (notificationData: Object) => void;
 }
 
 interface Geofence {

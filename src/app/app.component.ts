@@ -30,12 +30,22 @@ export class MyApp {
         window.TransitionType = TransitionType;
       }
 
-      window.geofence.initialize();
+      window.geofence.initialize().then(() => {
+        window.geofence.onTransitionReceived = function (geofences) {
+          geofences.forEach(function (geo) {
+            console.log("Geofence transition detected", geo);
+          });
+        };
+
+        window.geofence.onNotificationClicked = function (notificationData) {
+          console.log("App opened from Geo Notification!", notificationData);
+        };
+      })
     });
   }
 
   addFixtures() {
-    FIXTURES.forEach((fixture) => this.geofenceService.addOrUpdate(fixture));
+    FIXTURES.forEach((fixture) => this.geofenceService.addOrUpdate(geofence));
     this.menuCtrl.close();
   }
 

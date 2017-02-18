@@ -1,0 +1,8 @@
+{
+  "resolution": "main",
+  "tree": {
+    "src": "https://raw.githubusercontent.com/cowbell/cordova-plugin-geofence/master/typings/cordova-plugin-geofence.d.ts",
+    "raw": "github:cowbell/cordova-plugin-geofence/typings/cordova-plugin-geofence.d.ts",
+    "typings": "https://raw.githubusercontent.com/cowbell/cordova-plugin-geofence/master/typings/cordova-plugin-geofence.d.ts"
+  }
+}
