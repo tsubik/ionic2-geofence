@@ -2,8 +2,8 @@
 
 Sample project using [cordova geofence plugin](https://github.com/cowbell/cordova-plugin-geofence) built with Ionic2 framework
 
-![ionic2-screen1](https://cloud.githubusercontent.com/assets/1286444/12963536/850cde00-d04b-11e5-9805-149e8f22fbba.jpg)
-![ionic2-screen2](https://cloud.githubusercontent.com/assets/1286444/12963615/f30f3164-d04b-11e5-8db6-82027282a2a0.jpg)
+![ionic2-screen1](https://cloud.githubusercontent.com/assets/1286444/23096546/4d522902-f61f-11e6-8ed4-b7ddf5cbc62a.png)
+![ionic2-screen2](https://cloud.githubusercontent.com/assets/1286444/23096550/5a38b406-f61f-11e6-878e-e4ca09dd60a2.png)
 
 ## Working Example
 
