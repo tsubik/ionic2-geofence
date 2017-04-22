@@ -30,7 +30,8 @@ export class MyApp {
         window.TransitionType = TransitionType;
       }
 
-      window.geofence.initialize().then(() => {
+      window.geofence.initialize().then((initStatus) => {
+        console.log("Geofence Plugin has been initialized", initStatus);
         window.geofence.onTransitionReceived = function (geofences) {
           geofences.forEach(function (geo) {
             console.log("Geofence transition detected", geo);
@@ -40,6 +41,8 @@ export class MyApp {
         window.geofence.onNotificationClicked = function (notificationData) {
           console.log("App opened from Geo Notification!", notificationData);
         };
+      }).catch((error) => {
+        console.error(error);
       })
     });
   }

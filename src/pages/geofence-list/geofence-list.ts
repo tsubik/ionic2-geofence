@@ -32,8 +32,10 @@ export class GeofenceListPage {
     this.menu.enable(true);
   }
 
-  ionViewLoaded() {
-    Splashscreen.hide();
+  ionViewDidLoad() {
+    this.platform.ready().then(() => {
+      Splashscreen.hide();
+    });
   }
 
   new() {
