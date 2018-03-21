@@ -1,6 +1,6 @@
 import { Component, ViewChild } from "@angular/core";
 import { Nav, Platform, AlertController, MenuController } from "ionic-angular";
-import * as Leaflet from "leaflet";
+import Leaflet from 'leaflet';
 
 import { GeofenceListPage } from "../pages/geofence-list/geofence-list";
 import { GeofenceService } from "../services/geofence-service";

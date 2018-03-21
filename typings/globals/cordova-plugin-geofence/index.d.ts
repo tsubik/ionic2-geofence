@@ -49,15 +49,15 @@ interface Geofence {
   longitude: number;
   radius: number;
   transitionType: number;
-  notification?: Notification;
+  notification?: Notification2;
 }
 
-interface Notification {
+interface Notification2 {
   id?: number;
   title?: string;
   text: string;
   smallIcon?: string;
-  icon?: string;
+  readonly icon?: string;
   openAppOnClick?: boolean;
   vibration?: number[];
   data?: Object;
