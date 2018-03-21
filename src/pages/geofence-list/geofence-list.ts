@@ -2,7 +2,9 @@ import { Component } from "@angular/core";
 import { NavController, Platform, MenuController } from "ionic-angular";
 import { GeofenceDetailsPage } from "../geofence-details/geofence-details";
 import { GeofenceService } from "../../services/geofence-service";
-import { Splashscreen } from "ionic-native";
+
+import { StatusBar } from '@ionic-native/status-bar';
+import { SplashScreen } from '@ionic-native/splash-screen';
 
 @Component({
   templateUrl: "geofence-list.html"
@@ -15,7 +17,9 @@ export class GeofenceListPage {
     private nav: NavController,
     private geofenceService: GeofenceService,
     private platform: Platform,
-    private menu: MenuController
+    private menu: MenuController,
+    private statusBar: StatusBar,
+    private splashScreen: SplashScreen
   ) {
     this.isLoading = true;
     this.platform.ready().then(() => {
@@ -34,7 +38,8 @@ export class GeofenceListPage {
 
   ionViewDidLoad() {
     this.platform.ready().then(() => {
-      Splashscreen.hide();
+      this.statusBar.styleDefault();
+      this.splashScreen.hide();
     });
   }
 
